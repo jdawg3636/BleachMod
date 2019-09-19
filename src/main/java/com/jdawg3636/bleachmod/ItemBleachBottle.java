@@ -1,6 +1,6 @@
 package com.jdawg3636.bleachmod;
 
-import com.jdawg3636.bleachmod.core.Main;
+import com.jdawg3636.bleachmod.core.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -46,11 +46,11 @@ public class ItemBleachBottle extends ItemFood {
             // Play Sound
             worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
             // Inflict Damage
-            if (!worldIn.isRemote) entityplayer.attackEntityFrom(Main.bleachDamage, 600.0F);
+            if (!worldIn.isRemote) entityplayer.attackEntityFrom(Reference.bleachDamage, 600.0F);
         }
 
         // Return ItemStack of Empty Bottle
-        return new ItemStack(Main.modItems[0]);
+        return new ItemStack(Reference.modItems[0]);
 
     }
 

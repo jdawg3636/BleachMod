@@ -1,7 +1,6 @@
 package com.jdawg3636.bleachmod;
 
-import com.jdawg3636.bleachmod.core.Main;
-
+import com.jdawg3636.bleachmod.core.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -23,13 +22,13 @@ public class BlockSolidBleach extends Block {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
-        if (!worldIn.isRemote && !playerIn.isCreative()) playerIn.attackEntityFrom(Main.solidBleachDamage, 600.0F);
+        if (!worldIn.isRemote && !playerIn.isCreative()) playerIn.attackEntityFrom(Reference.solidBleachDamage, 600.0F);
         return true;
     }
 
     @Override
     public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest) {
-        if (!world.isRemote && !player.isCreative()) player.attackEntityFrom(Main.solidBleachDamage, 600.0F);
+        if (!world.isRemote && !player.isCreative()) player.attackEntityFrom(Reference.solidBleachDamage, 600.0F);
         return super.removedByPlayer(state, world, pos, player, willHarvest);
 
     }
