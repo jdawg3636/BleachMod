@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "I  ",
+    "I I",
+    "III"
+  ],
+
+  "key":
+  {
+    "I":
+    {
+      "item": "minecraft:glass"
+    }
+  },
+
+  "result":
+  {
+    "item": "bleachmod:emptyWindexBottle",
+    "count": 1
+  }
+}

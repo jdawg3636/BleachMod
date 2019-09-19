@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+
+  "ingredients":
+  [
+
+    {
+      "item": "bleachmod:emptyWindexBottle"
+    },
+
+    {
+      "item": "minecraft:fermented_spider_eye"
+    }
+
+  ],
+
+  "result":
+  {
+    "item": "bleachmod:windexBottle",
+    "count": 1
+  }
+}

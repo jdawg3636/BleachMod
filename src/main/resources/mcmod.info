@@ -1,0 +1,10 @@
+[
+{
+  "modid": "bleachmod",
+  "name": "jdawg3636's Bleach Mod",
+  "description": "Allows the player to commit suicide by drinking bleach and Windex.",
+  "authorList": ["jdawg3636"],
+  "credits": "\nObama - sucking me off in a Walgreens\nLogan Paul - Dabbing on my haters\nBush - Doing 9/11\n",
+  "logoFile": "assets/bleachmod/textures/items/bleachbottle.png"
+}
+]

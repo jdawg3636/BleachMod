@@ -1,0 +1,10 @@
+[
+{
+  "modid": "bleachmod",
+  "name": "Bleach Mod",
+  "description": "Adds bleach and Windex to Minecraft. Drink away.",
+  "version": "Release 1.0.0",
+  "mcversion": "[1.11,)",
+  "authorList": ["jdawg3636"]
+}
+]
