@@ -21,9 +21,8 @@ public class BlockSolidBleach extends Block {
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
         if (!worldIn.isRemote && !playerIn.isCreative()) playerIn.attackEntityFrom(Reference.solidBleachDamage, 600.0F);
-        return true;
+        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
     }
 
     @Override
