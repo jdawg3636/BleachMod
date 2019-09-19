@@ -3,8 +3,9 @@
   "modid": "bleachmod",
   "name": "Bleach Mod",
   "description": "Adds bleach and Windex to Minecraft. Drink away.",
-  "version": "Release 1.0.0",
-  "mcversion": "[1.11,)",
+  "version": "1.12-1.0",
+  "mcversion": "[1.12,)",
+  "url": "https://github.com/jdawg3636/BleachMod",
   "authorList": ["jdawg3636"]
 }
 ]
