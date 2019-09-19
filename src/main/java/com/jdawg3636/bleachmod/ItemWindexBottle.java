@@ -1,7 +1,6 @@
 package com.jdawg3636.bleachmod;
 
 import com.jdawg3636.bleachmod.core.Main;
-import com.jdawg3636.bleachmod.core.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -18,8 +17,8 @@ public class ItemWindexBottle extends ItemFood {
 
         super(0, 0.0F, false);
 
-        setUnlocalizedName(Reference.ModItems.WINDEXBOTTLE.getUnlocalizedName());
-        setRegistryName(Reference.ModItems.WINDEXBOTTLE.getRegistryName());
+        setUnlocalizedName("windexBottle");
+        setRegistryName("windexBottle");
 
         setMaxStackSize(1);
         setAlwaysEdible();

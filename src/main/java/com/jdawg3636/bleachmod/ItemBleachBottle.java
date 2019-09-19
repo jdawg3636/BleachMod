@@ -1,8 +1,6 @@
 package com.jdawg3636.bleachmod;
 
 import com.jdawg3636.bleachmod.core.Main;
-import com.jdawg3636.bleachmod.core.Reference;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -19,8 +17,8 @@ public class ItemBleachBottle extends ItemFood {
 
         super(0, 0.0F, false);
 
-        setUnlocalizedName(Reference.ModItems.BLEACHBOTTLE.getUnlocalizedName());
-        setRegistryName(Reference.ModItems.BLEACHBOTTLE.getRegistryName());
+        setUnlocalizedName("bleachBottle");
+        setRegistryName("bleachBottle");
 
         setMaxStackSize(1);
         setAlwaysEdible();

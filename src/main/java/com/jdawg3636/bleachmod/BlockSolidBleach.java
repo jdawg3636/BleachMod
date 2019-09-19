@@ -2,7 +2,6 @@ package com.jdawg3636.bleachmod;
 
 import com.jdawg3636.bleachmod.core.Main;
 
-import com.jdawg3636.bleachmod.core.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -16,8 +15,8 @@ public class BlockSolidBleach extends Block {
 
     public BlockSolidBleach() {
         super(Material.CAKE);
-        setUnlocalizedName(Reference.ModBlocks.SOLIDBLEACH.getUnlocalizedName());
-        setRegistryName(Reference.ModBlocks.SOLIDBLEACH.getRegistryName());
+        setUnlocalizedName("solidBleach");
+        setRegistryName("solidBleach");
         setHardness(1.0F);
     }
 
