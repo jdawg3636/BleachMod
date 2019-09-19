@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid= "bleachmod", version="1.12.2-1.0", name="jdawg3636's Bleach Mod", acceptedMinecraftVersions="[1.12,)")
+@Mod(modid= "bleachmod", version="1.12.2-1.1", name="jdawg3636's Bleach Mod", acceptedMinecraftVersions="[1.12,)")
 @Mod.EventBusSubscriber
 public class Main {
 
