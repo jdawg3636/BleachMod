@@ -3,50 +3,31 @@ package com.jdawg3636.bleachmod;
 import com.jdawg3636.bleachmod.core.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.item.*;
 import net.minecraft.world.World;
 
 public class ItemBleachBottle extends ItemFood {
 
     public ItemBleachBottle() {
-
-        super(0, 0.0F, false);
-
-        setUnlocalizedName("bleachBottle");
-        setRegistryName("bleachBottle");
-
-        setMaxStackSize(1);
+        super(0, 0.0F, false, new Item.Properties().maxStackSize(1).group(ItemGroup.BREWING));
+        setRegistryName(Reference.MODID, "bleach_bottle");
         setAlwaysEdible();
-
     }
 
     @Override
-    public EnumAction getItemUseAction(ItemStack stack) {
+    public EnumAction getUseAction(ItemStack stack) {
         return EnumAction.DRINK;
     }
 
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
 
-        // Shrink Stack
-        stack.shrink(1);
+        // Call super (handles statistics etc.)
+        super.onItemUseFinish(stack, worldIn, entityLiving);
 
-        // Check if Player (Should Always be True)
+        // Inflict Damage
         if (entityLiving instanceof EntityPlayer) {
-            // Cast to Player
-            EntityPlayer entityplayer = (EntityPlayer)entityLiving;
-            // Update Stats
-            entityplayer.getFoodStats().addStats(this, stack);
-            entityplayer.addStat(StatList.getObjectUseStats(this));
-            // Play Sound
-            worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
-            // Inflict Damage
-            if (!worldIn.isRemote) entityplayer.attackEntityFrom(Reference.bleachDamage, 600.0F);
+            if (!worldIn.isRemote) entityLiving.attackEntityFrom(Reference.bleachDamage, 600.0F);
         }
 
         // Return ItemStack of Empty Bottle

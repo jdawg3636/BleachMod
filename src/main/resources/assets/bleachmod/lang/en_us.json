@@ -1,0 +1,12 @@
+{
+	"item.bleachmod.bleach_bottle": "Bottle of Bleach",
+	"item.bleachmod.empty_bleach_bottle": "Empty Bottle of Bleach",
+	"item.bleachmod.windex_bottle": "Bottle of Windex",
+	"item.bleachmod.empty_windex_bottle": "Empty Bottle of Windex",
+
+	"block.bleachmod.solid_bleach": "Block of Solidified Bleach",
+
+	"death.attack.bleach_damage": "%1$s drank bleach",
+	"death.attack.windex_damage": "%1$s drank Windex",
+	"death.attack.solid_bleach_damage": "%1$s perished whilst attempting to handle solidified bleach"
+}

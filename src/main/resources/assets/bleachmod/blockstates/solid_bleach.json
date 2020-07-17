@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "bleachmod:block/solid_bleach" }
+    }
+}

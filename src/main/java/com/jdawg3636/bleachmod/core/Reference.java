@@ -9,10 +9,13 @@ import java.util.HashMap;
 
 public class Reference {
 
+    // Mod Info
+    public static final String MODID = "bleachmod";
+
     // Damage Sources
-    public static DamageSource bleachDamage = new BleachModDamageSource("bleachDamage");
-    public static DamageSource solidBleachDamage = new BleachModDamageSource("solidBleachDamage");
-    public static DamageSource windexDamage = new BleachModDamageSource("windexDamage");
+    public static DamageSource bleachDamage = new BleachModDamageSource("bleach_damage");
+    public static DamageSource solidBleachDamage = new BleachModDamageSource("solid_bleach_damage");
+    public static DamageSource windexDamage = new BleachModDamageSource("windex_damage");
 
     // Items
     public static Item[] modItems = new Item[] {new ItemEmptyBleachBottle(), new ItemBleachBottle(), new ItemEmptyWindexBottle(), new ItemWindexBottle()};

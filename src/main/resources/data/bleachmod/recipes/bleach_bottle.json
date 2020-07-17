@@ -5,7 +5,7 @@
   [
 
     {
-      "item": "bleachmod:emptyBleachBottle"
+      "item": "bleachmod:empty_bleach_bottle"
     },
 
     {
@@ -16,7 +16,7 @@
 
   "result":
   {
-    "item": "bleachmod:bleachBottle",
+    "item": "bleachmod:bleach_bottle",
     "count": 1
   }
 }

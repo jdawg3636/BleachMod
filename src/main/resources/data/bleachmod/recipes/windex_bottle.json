@@ -5,18 +5,18 @@
   [
 
     {
-      "item": "bleachmod:bleachBottle"
+      "item": "bleachmod:empty_windex_bottle"
     },
 
     {
-      "item": "minecraft:slime"
+      "item": "minecraft:fermented_spider_eye"
     }
 
   ],
 
   "result":
   {
-    "item": "bleachmod:solidBleach",
+    "item": "bleachmod:windex_bottle",
     "count": 1
   }
 }

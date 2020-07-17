@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "bleachmod:items/emptybleachbottle"
+        "layer0": "bleachmod:item/empty_windex_bottle"
     }
 }

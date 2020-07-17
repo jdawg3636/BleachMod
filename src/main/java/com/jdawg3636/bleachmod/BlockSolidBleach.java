@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -13,23 +14,20 @@ import net.minecraft.world.World;
 public class BlockSolidBleach extends Block {
 
     public BlockSolidBleach() {
-        super(Material.CAKE);
-        setUnlocalizedName("solidBleach");
-        setRegistryName("solidBleach");
-        setHardness(1.0F);
+        super(Block.Properties.create(Material.CAKE).hardnessAndResistance(1.0F));
+        setRegistryName(Reference.MODID, "solid_bleach");
     }
 
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        if (!worldIn.isRemote && !playerIn.isCreative()) playerIn.attackEntityFrom(Reference.solidBleachDamage, 600.0F);
-        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+    public boolean onBlockActivated(IBlockState state, World worldIn, BlockPos pos, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+        if (!worldIn.isRemote) player.attackEntityFrom(Reference.solidBleachDamage, 600.0F);
+        return super.onBlockActivated(state, worldIn, pos, player, hand, side, hitX, hitY, hitZ);
     }
 
     @Override
-    public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest) {
-        if (!world.isRemote && !player.isCreative()) player.attackEntityFrom(Reference.solidBleachDamage, 600.0F);
-        return super.removedByPlayer(state, world, pos, player, willHarvest);
-
+    public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player) {
+        if (!worldIn.isRemote) player.attackEntityFrom(Reference.solidBleachDamage, 600.0F);
+        super.onBlockHarvested(worldIn, pos, state, player);
     }
 
 }
