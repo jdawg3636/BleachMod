@@ -1,32 +1,31 @@
 package com.jdawg3636.bleachmod;
 
 import com.jdawg3636.bleachmod.core.Reference;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
 
-public class ItemBleachBottle extends ItemFood {
+public class ItemBleachBottle extends Item {
 
     public ItemBleachBottle() {
-        super(0, 0.0F, false, new Item.Properties().maxStackSize(1).group(ItemGroup.BREWING));
+        super(new Item.Properties().maxStackSize(1).group(ItemGroup.BREWING).food((new Food.Builder()).hunger(0).saturation(0.0F).setAlwaysEdible().build()));
         setRegistryName(Reference.MODID, "bleach_bottle");
-        setAlwaysEdible();
     }
 
     @Override
-    public EnumAction getUseAction(ItemStack stack) {
-        return EnumAction.DRINK;
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.DRINK;
     }
 
     @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 
         // Call super (handles statistics etc.)
         super.onItemUseFinish(stack, worldIn, entityLiving);
 
         // Inflict Damage
-        if (entityLiving instanceof EntityPlayer) {
+        if (entityLiving instanceof PlayerEntity) {
             if (!worldIn.isRemote) entityLiving.attackEntityFrom(Reference.bleachDamage, 600.0F);
         }
 

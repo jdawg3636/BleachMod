@@ -2,7 +2,7 @@ package com.jdawg3636.bleachmod.core;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -31,7 +31,7 @@ public class BleachMod {
             // ItemBlocks
             for(int i = 0; i < Reference.modBlocks.length; i++) {
                 // Copies original Block's registry name to the new ItemBlock
-                event.getRegistry().register(new ItemBlock(Reference.modBlocks[i], new Item.Properties().group(ItemGroup.SEARCH)).setRegistryName(Reference.modBlocks[i].getRegistryName()));
+                event.getRegistry().register(new BlockItem(Reference.modBlocks[i], new Item.Properties().group(ItemGroup.SEARCH)).setRegistryName(Reference.modBlocks[i].getRegistryName()));
             }
         }
     }
