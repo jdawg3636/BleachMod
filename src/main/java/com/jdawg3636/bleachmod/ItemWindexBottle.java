@@ -32,7 +32,7 @@ public class ItemWindexBottle extends ItemFood {
             // Give Empty Bottle
             entityplayer.inventory.addItemStackToInventory(new ItemStack(Reference.modItems[2]));
             // Inflict Damage
-            if (!worldIn.isRemote) entityLiving.attackEntityFrom(Reference.bleachDamage, 600.0F);
+            if (!worldIn.isRemote) entityLiving.attackEntityFrom(Reference.windexDamage, 600.0F);
         }
 
         // Return Empty ItemStack

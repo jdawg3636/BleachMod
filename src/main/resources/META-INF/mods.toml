@@ -4,7 +4,7 @@ logoFile="bleachmod_logo.png" #optional
 
 [[mods]] #mandatory
     modId="bleachmod" #mandatory
-    version="1.13.2-1.0" #mandatory
+    version="1.13.2-1.2" #mandatory
     displayName="jdawg3636's Bleach Mod" #mandatory
     credits="\nObama - sucking me off in a Walgreens\nLogan Paul - Dabbing on my haters\nBush - Doing 9/11\n" #optional
     authors="jdawg3636" #optional
