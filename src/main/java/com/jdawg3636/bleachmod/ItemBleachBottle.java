@@ -24,13 +24,17 @@ public class ItemBleachBottle extends Item {
         // Call super (handles statistics etc.)
         super.onItemUseFinish(stack, worldIn, entityLiving);
 
-        // Inflict Damage
         if (entityLiving instanceof PlayerEntity) {
+            // Cast to Player
+            PlayerEntity entityplayer = (PlayerEntity)entityLiving;
+            // Give Empty Bottle
+            entityplayer.inventory.addItemStackToInventory(new ItemStack(Reference.modItems[0]));
+            // Inflict Damage
             if (!worldIn.isRemote) entityLiving.attackEntityFrom(Reference.bleachDamage, 600.0F);
         }
 
-        // Return ItemStack of Empty Bottle
-        return new ItemStack(Reference.modItems[0]);
+        // Return Empty ItemStack
+        return new ItemStack(Items.AIR);
 
     }
 

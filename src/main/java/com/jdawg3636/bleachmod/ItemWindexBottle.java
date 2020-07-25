@@ -24,13 +24,17 @@ public class ItemWindexBottle extends Item {
         // Call super (handles statistics etc.)
         super.onItemUseFinish(stack, worldIn, entityLiving);
 
-        // Inflict Damage
         if (entityLiving instanceof PlayerEntity) {
-            if (!worldIn.isRemote) entityLiving.attackEntityFrom(Reference.windexDamage, 600.0F);
+            // Cast to Player
+            PlayerEntity entityplayer = (PlayerEntity)entityLiving;
+            // Give Empty Bottle
+            entityplayer.inventory.addItemStackToInventory(new ItemStack(Reference.modItems[2]));
+            // Inflict Damage
+            if (!worldIn.isRemote) entityLiving.attackEntityFrom(Reference.bleachDamage, 600.0F);
         }
 
-        // Return ItemStack of Empty Bottle
-        return new ItemStack(Reference.modItems[2]);
+        // Return Empty ItemStack
+        return new ItemStack(Items.AIR);
 
     }
 
