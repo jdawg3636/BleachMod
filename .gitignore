@@ -22,11 +22,4 @@ eclipse
 run
 
 # Files from Forge MDK
-forge*changelog.txt
-
-# Bleach Mod Custom
-forge-1.14.4-28.2.0-mdk.zip
-CREDITS.txt
-LICENSE.txt
-README.txt
-changelog.txt
+forge-1.16.1-32.0.75-mdk.zip
