@@ -2,9 +2,11 @@ modLoader="javafml" #mandatory
 loaderVersion="[25,)" #mandatory (24 is current forge version)
 logoFile="bleachmod_logo.png" #optional
 
+license="MIT License"
+
 [[mods]] #mandatory
     modId="bleachmod" #mandatory
-    version="1.16.1-1.2" #mandatory
+    version="1.16.2-1.2" #mandatory
     displayName="jdawg3636's Bleach Mod" #mandatory
     credits="\nObama - sucking me off in a Walgreens\nLogan Paul - Dabbing on my haters\nBush - Doing 9/11\n" #optional
     authors="jdawg3636" #optional
