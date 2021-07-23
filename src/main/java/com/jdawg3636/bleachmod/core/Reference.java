@@ -1,11 +1,9 @@
 package com.jdawg3636.bleachmod.core;
 
 import com.jdawg3636.bleachmod.*;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.util.DamageSource;
-
-import java.util.HashMap;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.damagesource.DamageSource;
 
 public class Reference {
 
