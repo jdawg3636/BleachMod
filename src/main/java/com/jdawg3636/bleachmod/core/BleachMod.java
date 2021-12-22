@@ -31,9 +31,10 @@ public class BleachMod {
             // ItemBlocks
             for(int i = 0; i < Reference.modBlocks.length; i++) {
                 // Copies original Block's registry name to the new ItemBlock
-                event.getRegistry().register(new BlockItem(Reference.modBlocks[i], new Item.Properties().group(ItemGroup.SEARCH)).setRegistryName(Reference.modBlocks[i].getRegistryName()));
+                event.getRegistry().register(new BlockItem(Reference.modBlocks[i], new Item.Properties().tab(ItemGroup.TAB_SEARCH)).setRegistryName(Reference.modBlocks[i].getRegistryName()));
             }
         }
+
     }
 
 }

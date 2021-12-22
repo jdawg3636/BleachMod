@@ -5,8 +5,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 
-import java.util.HashMap;
-
 public class Reference {
 
     // Mod Info
