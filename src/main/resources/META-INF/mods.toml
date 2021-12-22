@@ -1,15 +1,13 @@
 modLoader="javafml" #mandatory
 loaderVersion="[25,)" #mandatory (24 is current forge version)
-logoFile="bleachmod_logo.png" #optional
+logoFile="bleachmod-banner.png" #optional
 
-license="MIT License"
+license="MIT License" #mandatory
 
 [[mods]] #mandatory
     modId="bleachmod" #mandatory
-    version="1.16.3-1.2" #mandatory
+    version="1.16.5-1.4" #mandatory
     displayName="jdawg3636's Bleach Mod" #mandatory
-    credits="\nObama - sucking me off in a Walgreens\nLogan Paul - Dabbing on my haters\nBush - Doing 9/11\n" #optional
+    credits="\nThe Internet, for inspiring this abomination.\n" #optional
     authors="jdawg3636" #optional
-    description='''
-    Adds drinkable bleach and Windex.
-    '''
+    description="\nStick it to your XBOX Live haters by drinking bleach... in MINECRAFT!"
