@@ -6,7 +6,7 @@ public class BleachModDamageSource extends DamageSource {
 
     public BleachModDamageSource(String damageType) {
         super(damageType);
-        setDamageBypassesArmor();
+        bypassArmor();
     }
 
 }

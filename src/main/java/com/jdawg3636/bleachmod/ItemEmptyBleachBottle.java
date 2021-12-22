@@ -6,7 +6,7 @@ import net.minecraft.item.ItemGroup;
 
 public class ItemEmptyBleachBottle extends Item {
     public ItemEmptyBleachBottle() {
-        super(new Item.Properties().maxStackSize(1).group(ItemGroup.SEARCH));
+        super(new Item.Properties().stacksTo(1).tab(ItemGroup.TAB_SEARCH));
         setRegistryName(Reference.MODID, "empty_bleach_bottle");
     }
 }

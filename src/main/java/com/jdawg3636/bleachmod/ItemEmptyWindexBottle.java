@@ -6,7 +6,7 @@ import net.minecraft.item.ItemGroup;
 
 public class ItemEmptyWindexBottle extends Item {
     public ItemEmptyWindexBottle() {
-        super(new Item.Properties().maxStackSize(1).group(ItemGroup.SEARCH));
+        super(new Item.Properties().stacksTo(1).tab(ItemGroup.TAB_SEARCH));
         setRegistryName(Reference.MODID, "empty_windex_bottle");
     }
 }
