@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.17.1-1.3'
+version = '1.17.1-1.4'
 group = 'com.jdawg3636.bleachmod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'jdawg3636\'s Bleach Mod'
 

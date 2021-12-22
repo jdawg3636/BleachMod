@@ -6,7 +6,7 @@ license="MIT License" #mandatory
 
 [[mods]] #mandatory
     modId="bleachmod" #mandatory
-    version="1.17.1-1.3" #mandatory
+    version="1.17.1-1.4" #mandatory
     displayName="jdawg3636's Bleach Mod" #mandatory
     credits="\nThe Internet, for inspiring this abomination.\n" #optional
     authors="jdawg3636" #optional
