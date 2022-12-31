@@ -1,5 +1,6 @@
 {
     "parent": "block/block",
+    "render_type": "translucent",
     "textures": {
         "particle": "bleachmod:block/solid_bleach",
         "texture": "bleachmod:block/solid_bleach"

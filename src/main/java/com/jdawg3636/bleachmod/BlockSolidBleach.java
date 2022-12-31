@@ -1,6 +1,5 @@
 package com.jdawg3636.bleachmod;
 
-import com.jdawg3636.bleachmod.core.Reference;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -22,15 +21,15 @@ public class BlockSolidBleach extends SlimeBlock {
 
     @Override
     @SuppressWarnings("deprecation")
-    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        if (!worldIn.isClientSide()) player.hurt(Reference.DAMAGE_SOURCE_SOLID_BLEACH, 600.0F);
-        return super.use(state, worldIn, pos, player, handIn, hit);
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
+        if (!level.isClientSide()) player.hurt(Reference.DAMAGE_SOURCE_SOLID_BLEACH, 600.0F);
+        return super.use(state, level, pos, player, handIn, hit);
     }
 
     @Override
-    public void playerWillDestroy(Level worldIn, BlockPos pos, BlockState state, Player player) {
-        if (!worldIn.isClientSide()) player.hurt(Reference.DAMAGE_SOURCE_SOLID_BLEACH, 600.0F);
-        super.playerWillDestroy(worldIn, pos, state, player);
+    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        if (!level.isClientSide()) player.hurt(Reference.DAMAGE_SOURCE_SOLID_BLEACH, 600.0F);
+        super.playerWillDestroy(level, pos, state, player);
     }
 
     @Override
