@@ -1,11 +1,11 @@
 package com.jdawg3636.bleachmod;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
-import net.minecraft.item.Item;
-import net.minecraft.block.Block;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
@@ -26,12 +26,6 @@ public class Reference {
     public static final HashMap<Identifier, Block> BLOCKS = new HashMap<>();
     public static final HashMap<Identifier, Item> ITEMS = new HashMap<>();
     public static final HashMap<ItemGroup, ArrayList<Supplier<Item>>> CREATIVE_TAB_MAPPINGS = new HashMap<>();
-    public static final HashMap<Class<?>, Supplier<HashMap<Identifier, ?>>> REGISTRY_TYPE_MAPPINGS;
-    static {
-        REGISTRY_TYPE_MAPPINGS = new HashMap<>();
-        REGISTRY_TYPE_MAPPINGS.put(Block.class, () -> BLOCKS);
-        REGISTRY_TYPE_MAPPINGS.put(Item.class, () -> ITEMS);
-    }
 
     // Blocks
     public static final Supplier<Block> BLOCK_SOLID_BLEACH = Reference.register(Reference.BLOCKS, "solid_bleach", BlockSolidBleach::new);
