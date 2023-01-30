@@ -1,14 +1,14 @@
 package com.jdawg3636.bleachmod;
 
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.UseAnim;
-import net.minecraft.world.level.Level;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.util.UseAction;
+import net.minecraft.world.World;
 
 import java.util.function.Supplier;
 
@@ -18,31 +18,31 @@ public class ItemHarmfulDrink extends Item {
     public DamageSource damageSource;
 
     public ItemHarmfulDrink(Supplier<ItemStack> emptyBottleSupplier, DamageSource damageSource) {
-        super(new Item.Properties().stacksTo(1).food((new FoodProperties.Builder()).nutrition(0).saturationMod(0.0F).alwaysEat().build()));
+        super(new Item.Settings().maxCount(1).food((new FoodComponent.Builder()).hunger(0).saturationModifier(0.0F).alwaysEdible().build()));
         this.emptyBottleSupplier = emptyBottleSupplier;
         this.damageSource = damageSource;
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.DRINK;
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.DRINK;
     }
 
     @Override
-    public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
+    public ItemStack finishUsing(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 
         // Call super (handles statistics etc.)
-        super.finishUsingItem(stack, worldIn, entityLiving);
+        super.finishUsing(stack, worldIn, entityLiving);
 
-        if (entityLiving instanceof Player entityPlayer) {
+        if (entityLiving instanceof PlayerEntity entityPlayer) {
             // Give Empty Bottle
-            entityPlayer.getInventory().add(this.emptyBottleSupplier.get());
+            entityPlayer.getInventory().insertStack(this.emptyBottleSupplier.get());
             // Inflict Damage
-            if (!worldIn.isClientSide()) entityPlayer.hurt(this.damageSource, 600.0F);
+            if (!worldIn.isClient()) entityPlayer.damage(this.damageSource, 600.0F);
         }
 
         // Return Empty ItemStack
-        return Items.AIR.getDefaultInstance();
+        return Items.AIR.getDefaultStack();
 
     }
 

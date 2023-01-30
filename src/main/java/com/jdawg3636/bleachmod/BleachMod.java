@@ -1,23 +1,27 @@
 package com.jdawg3636.bleachmod;
 
-import net.minecraftforge.event.CreativeModeTabEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 
 import java.util.ArrayList;
 
-@Mod(Reference.MODID)
-@Mod.EventBusSubscriber(modid = Reference.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class BleachMod {
+public class BleachMod implements ModInitializer {
 
-    public BleachMod() {
-        Reference.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        Reference.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onBuildContentsCreativeModeTabEvent);
+    @Override
+    public void onInitialize() {
+        // This is extremely over-engineered since I tried to maintain a similar structure to the Minecraft Forge version. I apologize for nothing <3
+        Reference.BLOCKS.forEach((identifier, block) -> Registry.register(Registries.BLOCK, identifier, block));
+        Reference.ITEMS.forEach((identifier, item) -> Registry.register(Registries.ITEM, identifier, item));
+        Reference.CREATIVE_TAB_MAPPINGS.keySet().forEach((itemGroup) -> ItemGroupEvents.modifyEntriesEvent(itemGroup).register((entries) -> onBuildContentsCreativeModeTabEvent(itemGroup, entries)));
     }
 
-    public void onBuildContentsCreativeModeTabEvent(CreativeModeTabEvent.BuildContents event) {
-        Reference.CREATIVE_TAB_MAPPINGS.getOrDefault(event.getTab(), new ArrayList<>()).forEach(event::accept);
+    public void onBuildContentsCreativeModeTabEvent(ItemGroup itemGroup, FabricItemGroupEntries entries) {
+        Reference.CREATIVE_TAB_MAPPINGS.getOrDefault(itemGroup, new ArrayList<>()).forEach(itemSupplier -> entries.add(itemSupplier.get()));
     }
 
 }

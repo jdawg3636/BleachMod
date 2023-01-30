@@ -1,45 +1,31 @@
 package com.jdawg3636.bleachmod;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.SlimeBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
-import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.block.*;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class BlockSolidBleach extends SlimeBlock {
 
     public BlockSolidBleach() {
-        super(BlockBehaviour.Properties.of(Material.CLAY, MaterialColor.GRASS).friction(0.8F).sound(SoundType.SLIME_BLOCK).noOcclusion());
+        super(AbstractBlock.Settings.of(Material.ORGANIC_PRODUCT, MapColor.PALE_GREEN).slipperiness(0.8F).sounds(BlockSoundGroup.SLIME).nonOpaque());
     }
 
     @Override
     @SuppressWarnings("deprecation")
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        if (!level.isClientSide()) player.hurt(Reference.DAMAGE_SOURCE_SOLID_BLEACH, 600.0F);
-        return super.use(state, level, pos, player, handIn, hit);
+    public ActionResult onUse(BlockState state, World level, BlockPos pos, PlayerEntity player, Hand handIn, BlockHitResult hit) {
+        if (!level.isClient()) player.damage(Reference.DAMAGE_SOURCE_SOLID_BLEACH, 600.0F);
+        return super.onUse(state, level, pos, player, handIn, hit);
     }
 
     @Override
-    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-        if (!level.isClientSide()) player.hurt(Reference.DAMAGE_SOURCE_SOLID_BLEACH, 600.0F);
-        super.playerWillDestroy(level, pos, state, player);
-    }
-
-    @Override
-    public boolean isSlimeBlock(BlockState state) {
-        return true;
-    }
-
-    @Override
-    public boolean isStickyBlock(BlockState state) {
-        return true;
+    public void onBreak(World level, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!level.isClient()) player.damage(Reference.DAMAGE_SOURCE_SOLID_BLEACH, 600.0F);
+        super.onBreak(level, pos, state, player);
     }
 
 }

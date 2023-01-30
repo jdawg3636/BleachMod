@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "bleachmod",
+  "version": "${version}",
+
+  "name": "jdawg3636's Bleach Mod",
+  "description": "Stick it to your XBOX Live haters by drinking bleach... in MINECRAFT! Credits to The Internet, for inspiring this abomination.",
+  "authors": [
+    "jdawg3636"
+  ],
+  "contact": {
+    "email": "jdawg3636minecraft@gmail.com",
+    "homepage": "http://bleachmod.jdawg3636.com/",
+    "sources": "http://bleachmod.jdawg3636.com/",
+    "issues": "http://github.com/jdawg3636/BleachMod/issues"
+  },
+
+  "license": "MIT",
+  "icon": "bleachmod_logo.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "preLaunch": [
+      "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+    ],
+    "main": [
+      "com.jdawg3636.bleachmod.BleachMod"
+    ],
+    "client": [
+      "com.jdawg3636.bleachmod.BleachModClient"
+    ]
+  },
+  "mixins": [
+    "bleachmod.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric-api": "*",
+    "minecraft": "~1.19.3",
+    "java": ">=17"
+  },
+  "recommends": {
+    "nochatreports": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/7wZzJTC"
+      }
+    }
+  }
+}

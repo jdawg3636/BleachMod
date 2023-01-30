@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.jdawg3636.bleachmod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "verbose": true,
+  "mixins": [
+    "PistonBlockEntityMixin",
+    "PistonHandlerMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
