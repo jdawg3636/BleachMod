@@ -1,6 +1,7 @@
 package com.jdawg3636.bleachmod;
 
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
@@ -15,9 +16,9 @@ import java.util.function.Supplier;
 public class ItemHarmfulDrink extends Item {
 
     public Supplier<ItemStack> emptyBottleSupplier;
-    public DamageSource damageSource;
+    public ResourceKey<DamageType> damageSource;
 
-    public ItemHarmfulDrink(Supplier<ItemStack> emptyBottleSupplier, DamageSource damageSource) {
+    public ItemHarmfulDrink(Supplier<ItemStack> emptyBottleSupplier, ResourceKey<DamageType> damageSource) {
         super(new Item.Properties().stacksTo(1).food((new FoodProperties.Builder()).nutrition(0).saturationMod(0.0F).alwaysEat().build()));
         this.emptyBottleSupplier = emptyBottleSupplier;
         this.damageSource = damageSource;
@@ -29,16 +30,16 @@ public class ItemHarmfulDrink extends Item {
     }
 
     @Override
-    public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
+    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entityLiving) {
 
         // Call super (handles statistics etc.)
-        super.finishUsingItem(stack, worldIn, entityLiving);
+        super.finishUsingItem(stack, level, entityLiving);
 
         if (entityLiving instanceof Player entityPlayer) {
             // Give Empty Bottle
             entityPlayer.getInventory().add(this.emptyBottleSupplier.get());
             // Inflict Damage
-            if (!worldIn.isClientSide()) entityPlayer.hurt(this.damageSource, 600.0F);
+            if (!level.isClientSide()) entityPlayer.hurt(Reference.getDamageSource(level, this.damageSource), 600.0F);
         }
 
         // Return Empty ItemStack
