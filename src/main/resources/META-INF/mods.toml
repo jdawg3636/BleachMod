@@ -1,12 +1,12 @@
 modLoader="javafml" #mandatory
-loaderVersion="[45,)" #mandatory
+loaderVersion="[46,)" #mandatory
 logoFile="bleachmod-banner.png" #optional
 
 license="MIT License" #mandatory
 
 [[mods]] #mandatory
     modId="bleachmod" #mandatory
-    version="1.19.4-1.5" #mandatory
+    version="1.20-1.5" #mandatory
     displayName="jdawg3636's Bleach Mod" #mandatory
     credits="\nThe Internet, for inspiring this abomination.\n" #optional
     authors="jdawg3636" #optional

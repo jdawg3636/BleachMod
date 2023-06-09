@@ -36,7 +36,7 @@ public class Reference {
     // Deferred Registers
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    public static final HashMap<CreativeModeTab, ArrayList<RegistryObject<Item>>> CREATIVE_TAB_MAPPINGS = new HashMap<>();
+    public static final HashMap<ResourceKey<CreativeModeTab>, ArrayList<RegistryObject<Item>>> CREATIVE_TAB_MAPPINGS = new HashMap<>();
 
     // Blocks
     public static final RegistryObject<Block> BLOCK_SOLID_BLEACH = Reference.BLOCKS.register("solid_bleach", BlockSolidBleach::new);
@@ -49,13 +49,13 @@ public class Reference {
     public static final RegistryObject<Item> ITEM_SOLID_BLEACH = registerItem("solid_bleach", () -> new BlockItem(BLOCK_SOLID_BLEACH.get(), new Item.Properties()), CreativeModeTabs.SEARCH);
 
     // Utility Methods
-    public static RegistryObject<Item> registerItem(String name, Supplier<Item> itemSupplier, CreativeModeTab creativeModeTab) {
+    public static RegistryObject<Item> registerItem(String name, Supplier<Item> itemSupplier, ResourceKey<CreativeModeTab> creativeModeTab) {
         RegistryObject<Item> itemRegistryObject = Reference.ITEMS.register(name, itemSupplier);
         if(creativeModeTab != null) registerCreativeTabMapping(creativeModeTab, itemRegistryObject);
         return itemRegistryObject;
     }
 
-    public static void registerCreativeTabMapping(CreativeModeTab creativeModeTab, RegistryObject<Item> itemRegistryObject) {
+    public static void registerCreativeTabMapping(ResourceKey<CreativeModeTab> creativeModeTab, RegistryObject<Item> itemRegistryObject) {
         ArrayList<RegistryObject<Item>> itemsInTab = Reference.CREATIVE_TAB_MAPPINGS.getOrDefault(creativeModeTab, new ArrayList<>());
         itemsInTab.add(itemRegistryObject);
         Reference.CREATIVE_TAB_MAPPINGS.put(creativeModeTab, itemsInTab);
