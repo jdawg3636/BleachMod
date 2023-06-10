@@ -1,0 +1,7 @@
+{
+  "death_message_type": "default",
+  "effects": "drowning",
+  "exhaustion": 0.0,
+  "message_id": "bleachmod.windex",
+  "scaling": "never"
+}

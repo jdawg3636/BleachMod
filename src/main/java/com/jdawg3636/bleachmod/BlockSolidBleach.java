@@ -18,13 +18,13 @@ public class BlockSolidBleach extends SlimeBlock {
     @Override
     @SuppressWarnings("deprecation")
     public ActionResult onUse(BlockState state, World level, BlockPos pos, PlayerEntity player, Hand handIn, BlockHitResult hit) {
-        if (!level.isClient()) player.damage(Reference.DAMAGE_SOURCE_SOLID_BLEACH, 600.0F);
+        if (!level.isClient()) player.damage(Reference.getDamageSource(level, Reference.DAMAGE_TYPE_SOLID_BLEACH), 600.0F);
         return super.onUse(state, level, pos, player, handIn, hit);
     }
 
     @Override
     public void onBreak(World level, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (!level.isClient()) player.damage(Reference.DAMAGE_SOURCE_SOLID_BLEACH, 600.0F);
+        if (!level.isClient()) player.damage(Reference.getDamageSource(level, Reference.DAMAGE_TYPE_SOLID_BLEACH), 600.0F);
         super.onBreak(level, pos, state, player);
     }
 

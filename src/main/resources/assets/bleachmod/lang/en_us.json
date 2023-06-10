@@ -6,7 +6,7 @@
 
 	"block.bleachmod.solid_bleach": "Block of Solidified Bleach",
 
-	"death.attack.bleach_damage": "%1$s drank bleach",
-	"death.attack.windex_damage": "%1$s drank Windex",
-	"death.attack.solid_bleach_damage": "%1$s perished whilst attempting to handle solidified bleach"
+	"death.attack.bleachmod.bleach": "%1$s drank bleach",
+	"death.attack.bleachmod.windex": "%1$s drank Windex",
+	"death.attack.bleachmod.solid_bleach": "%1$s perished whilst attempting to handle solidified bleach"
 }
