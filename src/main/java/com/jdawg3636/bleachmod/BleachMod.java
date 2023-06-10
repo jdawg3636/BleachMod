@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class BleachMod implements ModInitializer {
         Reference.CREATIVE_TAB_MAPPINGS.keySet().forEach((itemGroup) -> ItemGroupEvents.modifyEntriesEvent(itemGroup).register((entries) -> onBuildContentsCreativeModeTabEvent(itemGroup, entries)));
     }
 
-    public void onBuildContentsCreativeModeTabEvent(ItemGroup itemGroup, FabricItemGroupEntries entries) {
+    public void onBuildContentsCreativeModeTabEvent(RegistryKey<ItemGroup> itemGroup, FabricItemGroupEntries entries) {
         Reference.CREATIVE_TAB_MAPPINGS.getOrDefault(itemGroup, new ArrayList<>()).forEach(itemSupplier -> entries.add(itemSupplier.get()));
     }
 

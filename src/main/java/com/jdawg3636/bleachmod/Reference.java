@@ -7,7 +7,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
-import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
@@ -34,7 +33,7 @@ public class Reference {
     // Not-So-Deferred Registers
     public static final HashMap<Identifier, Block> BLOCKS = new HashMap<>();
     public static final HashMap<Identifier, Item> ITEMS = new HashMap<>();
-    public static final HashMap<ItemGroup, ArrayList<Supplier<Item>>> CREATIVE_TAB_MAPPINGS = new HashMap<>();
+    public static final HashMap<RegistryKey<ItemGroup>, ArrayList<Supplier<Item>>> CREATIVE_TAB_MAPPINGS = new HashMap<>();
 
     // Blocks
     public static final Supplier<Block> BLOCK_SOLID_BLEACH = Reference.register(Reference.BLOCKS, "solid_bleach", BlockSolidBleach::new);
@@ -53,13 +52,13 @@ public class Reference {
         return () -> object;
     }
 
-    public static Supplier<Item> registerItem(String name, Supplier<Item> itemSupplier, ItemGroup creativeModeTab) {
+    public static Supplier<Item> registerItem(String name, Supplier<Item> itemSupplier, RegistryKey<ItemGroup> creativeModeTab) {
         Supplier<Item> itemRegistryObject = Reference.register(Reference.ITEMS, name, itemSupplier);
         if(creativeModeTab != null) registerCreativeTabMapping(creativeModeTab, itemRegistryObject);
         return itemRegistryObject;
     }
 
-    public static void registerCreativeTabMapping(ItemGroup creativeModeTab, Supplier<Item> itemRegistryObject) {
+    public static void registerCreativeTabMapping(RegistryKey<ItemGroup> creativeModeTab, Supplier<Item> itemRegistryObject) {
         ArrayList<Supplier<Item>> itemsInTab = Reference.CREATIVE_TAB_MAPPINGS.getOrDefault(creativeModeTab, new ArrayList<>());
         itemsInTab.add(itemRegistryObject);
         Reference.CREATIVE_TAB_MAPPINGS.put(creativeModeTab, itemsInTab);
