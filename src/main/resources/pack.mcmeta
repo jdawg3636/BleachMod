@@ -1,6 +1,8 @@
 {
   "pack": {
-    "description": "Resources for jdawg3636's Bleach Mod",
-    "pack_format": 15
+    "description": {
+      "text": "${mod_id} resources"
+    },
+    "pack_format": ${pack_format_number}
   }
 }
