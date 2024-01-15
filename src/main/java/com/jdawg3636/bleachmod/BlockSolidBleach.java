@@ -26,9 +26,9 @@ public class BlockSolidBleach extends SlimeBlock {
     }
 
     @Override
-    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
         if (!level.isClientSide()) player.hurt(Reference.getDamageSource(level, Reference.DAMAGE_TYPE_SOLID_BLEACH), 600.0F);
-        super.playerWillDestroy(level, pos, state, player);
+        return super.playerWillDestroy(level, pos, state, player);
     }
 
     @Override

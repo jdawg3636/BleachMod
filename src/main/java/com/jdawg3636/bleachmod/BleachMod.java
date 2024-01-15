@@ -1,19 +1,18 @@
 package com.jdawg3636.bleachmod;
 
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 import java.util.ArrayList;
 
 @Mod(Reference.MODID)
-@Mod.EventBusSubscriber(modid = Reference.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BleachMod {
 
-    public BleachMod() {
-        Reference.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        Reference.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onBuildContentsCreativeModeTabEvent);
+    public BleachMod(IEventBus modEventBus) {
+        Reference.BLOCKS.register(modEventBus);
+        Reference.ITEMS.register(modEventBus);
+        modEventBus.addListener(this::onBuildContentsCreativeModeTabEvent);
     }
 
     public void onBuildContentsCreativeModeTabEvent(BuildCreativeModeTabContentsEvent event) {
