@@ -19,7 +19,7 @@ public class ItemHarmfulDrink extends Item {
     public ResourceKey<DamageType> damageSource;
 
     public ItemHarmfulDrink(Supplier<ItemStack> emptyBottleSupplier, ResourceKey<DamageType> damageSource) {
-        super(new Item.Properties().stacksTo(1).food((new FoodProperties.Builder()).nutrition(0).saturationMod(0.0F).alwaysEat().build()));
+        super(new Item.Properties().stacksTo(1).food((new FoodProperties.Builder()).nutrition(0).saturationModifier(0.0F).alwaysEdible().build()));
         this.emptyBottleSupplier = emptyBottleSupplier;
         this.damageSource = damageSource;
     }
