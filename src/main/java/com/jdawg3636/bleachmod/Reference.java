@@ -1,6 +1,5 @@
 package com.jdawg3636.bleachmod;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -21,9 +20,9 @@ public class Reference {
     public static final String MODID = "bleachmod";
 
     // Damage Types
-    public static final ResourceKey<DamageType> DAMAGE_TYPE_BLEACH = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(MODID, "bleach"));
-    public static final ResourceKey<DamageType> DAMAGE_TYPE_SOLID_BLEACH = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(MODID, "solid_bleach"));
-    public static final ResourceKey<DamageType> DAMAGE_TYPE_WINDEX = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(MODID, "windex"));
+    public static final ResourceKey<DamageType> DAMAGE_TYPE_BLEACH = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(MODID, "bleach"));
+    public static final ResourceKey<DamageType> DAMAGE_TYPE_SOLID_BLEACH = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(MODID, "solid_bleach"));
+    public static final ResourceKey<DamageType> DAMAGE_TYPE_WINDEX = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(MODID, "windex"));
 
     public static DamageSource getDamageSource(Level level, ResourceKey<DamageType> damageType) {
         return new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(damageType));
