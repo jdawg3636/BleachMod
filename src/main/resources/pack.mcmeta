@@ -4,8 +4,8 @@
       "text": "${mod_id} resources"
     },
     "pack_version": {
-        "resource": 32,
-        "data": 41
+      "resource": 46,
+      "data": 61
     }
   }
 }
