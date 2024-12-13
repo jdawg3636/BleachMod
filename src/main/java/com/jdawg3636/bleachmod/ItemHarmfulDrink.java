@@ -7,8 +7,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 
 import java.util.function.Supplier;
@@ -18,15 +18,19 @@ public class ItemHarmfulDrink extends Item {
     public Supplier<ItemStack> emptyBottleSupplier;
     public ResourceKey<DamageType> damageSource;
 
-    public ItemHarmfulDrink(Supplier<ItemStack> emptyBottleSupplier, ResourceKey<DamageType> damageSource) {
-        super(new Item.Properties().stacksTo(1).food((new FoodProperties.Builder()).nutrition(0).saturationModifier(0.0F).alwaysEdible().build()));
+    public static Item.Properties getHarmfulDrinkItemProperties() {
+        return new Item.Properties().stacksTo(1).food((new FoodProperties.Builder()).nutrition(0).saturationModifier(0.0F).alwaysEdible().build());
+    }
+
+    public ItemHarmfulDrink(Item.Properties properties, Supplier<ItemStack> emptyBottleSupplier, ResourceKey<DamageType> damageSource) {
+        super(properties);
         this.emptyBottleSupplier = emptyBottleSupplier;
         this.damageSource = damageSource;
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.DRINK;
+    public ItemUseAnimation getUseAnimation(ItemStack stack) {
+        return ItemUseAnimation.DRINK;
     }
 
     @Override

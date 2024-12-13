@@ -1,23 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-
-  "pattern":
-  [
+  "pattern": [
     "I  ",
     "I I",
     "III"
   ],
-
-  "key":
-  {
-    "I":
-    {
-      "item": "minecraft:iron_ingot"
-    }
+  "key": {
+    "I": "minecraft:iron_ingot"
   },
-
-  "result":
-  {
+  "result": {
     "id": "bleachmod:empty_bleach_bottle",
     "count": 1
   }
